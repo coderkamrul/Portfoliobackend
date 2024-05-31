@@ -1,14 +1,15 @@
-const express =require("express");
+const express = require("express");
 const app = express();
 const cors = require("cors");
-const port=5000
+const port = process.env.PORT || 5000;
 const mongoose = require("mongoose");
-const multer =require("multer")
-const path =require("path")
+const multer = require("multer");
+const path = require("path");
+require('dotenv').config();
 
-mongoose.connect("mongodb+srv://kamrulhasan13020:kamrulhasan13020@crud.q0y6kmc.mongodb.net/crud?retryWrites=true&w=majority&appName=crud").then(()=>{
+mongoose.connect(process.env.MONGODB_URI).then(() => {
     console.log("Server is connected");
-}).catch(error=> console.log(error))
+}).catch(error => console.log(error));
 
 
 
